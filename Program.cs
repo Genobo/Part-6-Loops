@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             int enter;
-            Console.WriteLine("Enter 1 to go to the prompter or 2 for PercentPassing.");
+            Console.WriteLine("Enter 1 to go to the prompter, 2 for PercentPassing or 3 for OddSum.");
             enter = Convert.ToInt32(Console.ReadLine());
             if (enter == 1)
             {
@@ -14,6 +14,10 @@
             else if (enter == 2)
             {
                 PercentPassing();
+            }
+            else if (enter == 3)
+            {
+                OddSum();
             }
         }
 
@@ -37,11 +41,30 @@
             {
                 Console.WriteLine("That number is smaller than the minimum value");
             }
+            Console.WriteLine($"The range of the numbers are {minNum + range + maxNum}");
         }
 
         public static void PercentPassing()
         {
-            Console.WriteLine("Welcome to PercentPassing");
+            int percent;
+            int amount = 0;
+            bool done = false;
+            while (!done)
+            {
+                Console.WriteLine("Please enter a set of scores and I'll calculate the amount of scores above 70%");
+                percent = Convert.ToInt32(Console.ReadLine());
+                amount++;
+                if (amount >= 7)
+                {
+                    done = true;
+                    Console.WriteLine($"The amount of scores higher than 70% are {amount}");
+                }
+            }
+        }
+
+        public static void OddSum()
+        {
+            Console.WriteLine("Please enter an odd number");
         }
     }
 }
