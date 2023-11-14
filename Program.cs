@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             int enter;
-            Console.WriteLine("Enter 1 to go to the prompter, 2 for PercentPassing or 3 for OddSum.");
+            Console.WriteLine("Enter 1 to go to the Prompter, 2 for PercentPassing, 3 for OddSum or 4 for Random Number generator.");
             enter = Convert.ToInt32(Console.ReadLine());
             if (enter == 1)
             {
@@ -18,6 +18,14 @@
             else if (enter == 3)
             {
                 OddSum();
+            }
+            else if (enter == 4)
+            {
+                RandomNumbers();
+            }
+            else
+            {
+                Console.WriteLine("Invalid input");
             }
         }
 
@@ -54,17 +62,36 @@
                 Console.WriteLine("Please enter a set of scores and I'll calculate the amount of scores above 70%");
                 percent = Convert.ToInt32(Console.ReadLine());
                 amount++;
-                if (amount >= 7)
+                if (amount >= 3)
                 {
                     done = true;
-                    Console.WriteLine($"The amount of scores higher than 70% are {amount}");
+                    Console.WriteLine($"{amount} of scores entered were above 70%");
                 }
             }
         }
 
         public static void OddSum()
         {
-            Console.WriteLine("Please enter an odd number");
+            int num;
+            Console.WriteLine("Please enter a number and I'll sum the odd numbers from 1 to the number entered");
+            num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine($"The sum of the numbers are {1 + 3 + 5 + num}");
+        }
+
+        public static void RandomNumbers()
+        {
+            Random generator = new Random();
+            int minNum;
+            int maxNum;
+            Console.WriteLine("Enter in a minimum and maximum value for me to generate 25 random numbers in the range");
+            Console.WriteLine("Enter a minimum value:");
+            minNum = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter a maximum value:");
+            maxNum = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i <= 25; i++)
+            {
+                Console.Write(generator.Next(minNum, maxNum) + " ");
+            }
         }
     }
 }
